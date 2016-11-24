@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  master:
+    image: hafeez3000/jmmaster
+    container_name: master
+    tty: true
+    hostname: master
+    volumes:
+      - ./jmeter:/jmeter/apache-jmeter-3.1/bin/myjmeter
+    networks:
+      - vins
+  slave:
+    image: hafeez3000/jmserver
+    tty: true
+    networks:
+      - vins
+  
+networks:
+  vins:
+    driver: bridge
