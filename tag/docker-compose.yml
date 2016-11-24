@@ -1,6 +1,17 @@
 version: '2'
 
 services:
+  web:
+    image: nginx
+    volumes:
+      - ./jmeter:/usr/share/nginx/html
+    ports:
+      - "80:80"
+    environment:
+#      - NGINX_HOST=devops1.testing.com
+#      - NGINX_PORT=80
+#    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+  
   master:
     image: hafeez3000/jmmaster
     container_name: master
@@ -10,6 +21,7 @@ services:
       - ./jmeter:/jmeter/apache-jmeter-3.1/bin/myjmeter
     networks:
       - vins
+
   slave:
     image: hafeez3000/jmserver
     tty: true
