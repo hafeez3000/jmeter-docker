@@ -7,7 +7,7 @@ services:
       - ./jmeter:/usr/share/nginx/html
     ports:
       - "80:80"
-    environment:
+#    environment:
 #      - NGINX_HOST=devops1.testing.com
 #      - NGINX_PORT=80
 #    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
